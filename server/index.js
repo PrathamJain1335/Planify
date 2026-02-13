@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
+import organistaionRoutes from "./routes/organisationRoutes.js"
+import taskRoutes from "./routes/taskRoutes.js"
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/organisations", organistaionRoutes);
+app.use("/api/tasks",taskRoutes);
 
 app.get("/", (req, res) => {
   res.send("API running");
